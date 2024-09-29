@@ -26,27 +26,27 @@ func main() {
         os.Exit(1)
     }
 
-    fileName := os.Args[1] // Declare fileName properly
+    fileName := os.Args[1]
     file, err := readFile(fileName)
     if err != nil {
         fmt.Println(err)
         os.Exit(1)
     }
-    defer file.Close() // Don't forget to close the file when you're done
+    defer file.Close()
 }
 
-func readFile(name string) (*os.File, error) { // Correct parameter syntax
-    file, err := os.Open(name) // Open the file
+func readFile(name string) (*os.File, error) {
+    file, err := os.Open(name)
 
     if err != nil {
         if os.IsNotExist(err) {
-            return nil, fmt.Errorf("file not found") // Return error with a message
+            return nil, fmt.Errorf("file not found")
         }
-        return nil, err // Return the error for other cases
+        return nil, err
     }
-    return file, nil // Return the file and nil error
+    return file, nil
 }
 
 func addExecutionPermission() {
-    // Implementation goes here
+
 }
